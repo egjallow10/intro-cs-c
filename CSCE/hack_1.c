@@ -29,12 +29,19 @@ int main(void)
 
 	//Calculate delta longitude
 	double delta = lon2 - lon1;
+	
+	//Spherical law of cosines
+
+	double distance = acos( sin(lat1) * sin(lat2) +
+			cos(lat1) * cos(lat2) * cos(delta)) * R;
 
 
-
-	printf("Origin: %f %f\n", lat1, lon1);
-	printf("Des: %f %f\n", lat2, lon2);
-	printf("Delta: %f ", delta);
+	//Output
+	printf("\nLocation Distance\n");
+	printf("==========================\n");
+	printf("Origin:      (%.6f, %.6f)\n", lat1 * 180.0 / M_PI, lon1 * 180.0 / M_PI);
+    	printf("Destination: (%.6f, %.6f)\n", lat2 * 180.0 / M_PI, lon2 * 180.0 / M_PI);
+    	printf("Air distance is %.6f kms\n", distance);
 	return 0;
 
 }
