@@ -21,6 +21,12 @@ int main(void)
 	printf("Enter destination latitude and logitude (degrees)");
 	scanf("%lf %lf", &lat2, &lon2);
 
+	// Conver degrees to radian
+	lat1 = lat1 * M_PI / 180.0;
+	lon1 = lon1 * M_PI / 180.0;
+	lat2 = lat2 * M_PI / 180.0;
+	lon2 = lon2 * M_PI / 180.0;
+
 	printf("Origin: %f %f\n", lat1, lon1);
 	printf("Des: %f %f\n", lat2, lon2);
 	return 0;
